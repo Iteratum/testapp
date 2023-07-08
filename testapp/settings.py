@@ -72,6 +72,13 @@ TEMPLATES = [
     },
 ]
 
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 WSGI_APPLICATION = 'testapp.wsgi.application'
 
 AUTH_USER_MODEL = 'app.User'
