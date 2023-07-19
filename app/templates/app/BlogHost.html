@@ -1,9 +1,0 @@
-{% extends "app/layout.html" %}
-
-{% block body %}
-<h4>My app</h4>
-{% for info in data %}
-<h4>{{ info.title }}</h4>
-<img src={{ info.image.url }} alt='image'>
-{% endfor %}
-{% endblock body %}
