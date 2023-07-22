@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['.onrender.com']
 
 CORS_ALLOWED_ORIGINS = [
     "https://vercel.com/iteratum/r-blog-jeyl",
+    "https://r-blog-jeyl.vercel.app",
 ]
 
 
