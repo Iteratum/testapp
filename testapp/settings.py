@@ -26,7 +26,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://testapp1-7tdo.onrender.com/']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://vercel.com/iteratum/r-blog-jeyl",
+]
 
 
 # Application definition
