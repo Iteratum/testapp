@@ -26,11 +26,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com', '*']
 
 CORS_ALLOWED_ORIGINS = [
-    "https://vercel.com/iteratum/r-blog-jeyl",
     "https://r-blog-jeyl.vercel.app",
+    "https://r-blog-git-master-iteratum.vercel.app"
 ]
 
 
@@ -134,7 +134,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_REGION_NAME = 's3.us-east-005.backblazeb2.com'
+AWS_S3_ENDPOINT_URL = 'https://s3.${AWS_S3_REGION_NAME}.backblazeb2.com'
+AWS_ACCESS_KEY_ID = '4f48f5368669'
+AWS_SECRET_ACCESS_KEY = '005cc31f90e13cf1eab7c74daa7f0ba7b059925492'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
