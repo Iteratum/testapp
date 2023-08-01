@@ -24,9 +24,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['.onrender.com', '*']
+ALLOWED_HOSTS = ['.onrender.com']
 
 CORS_ALLOWED_ORIGINS = [
     "https://r-blog-jeyl.vercel.app",
