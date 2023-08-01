@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -89,7 +89,7 @@ AUTH_USER_MODEL = 'app.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -128,19 +128,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_S3_REGION_NAME = 's3.us-east-005.backblazeb2.com'
-AWS_S3_ENDPOINT_URL = 'https://s3.${AWS_S3_REGION_NAME}.backblazeb2.com'
-AWS_ACCESS_KEY_ID = '4f48f5368669'
-AWS_SECRET_ACCESS_KEY = '005cc31f90e13cf1eab7c74daa7f0ba7b059925492'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
